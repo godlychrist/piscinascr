@@ -1,18 +1,27 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
 
     return (
-        <nav className="sticky top-0 z-50 bg-gray-900/70 backdrop-blur border-b border-white/10">
-            <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-10">
+        <nav className="sticky top-0 z-50">
+            <div className="mx-auto max-w-screen-2xl px-3 sm:px-4 lg:px-6">
                 <div className="flex h-20 items-center justify-between">
                     {/* Logo */}
-                    <div className="flex items-center gap-3">
-                        <div className="h-9 w-9 rounded-lg bg-indigo-500/90" />
-                        <span className="text-white font-semibold">Piscinas CR</span>
-                    </div>
+                    <a href="#inicio" className="flex items-center gap-4">
+                        <div className="relative h-16 w-16 transition-transform hover:scale-110">
+                            <Image
+                                src="/logo.png"
+                                alt="Piscinas CR Logo"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </div>
+                        <span className="text-white font-semibold text-xl">Piscinas CR</span>
+                    </a>
 
                     {/* Desktop menu */}
                     <div className="hidden sm:flex items-center gap-2">
@@ -53,7 +62,7 @@ export default function Header() {
             {/* Mobile menu */}
             {open && (
                 <div className="sm:hidden border-t border-white/10">
-                    <div className="mx-auto max-w-screen-2xl px-4 py-3 space-y-2">
+                    <div className="mx-auto max-w-screen-2xl px-3 py-3 space-y-2">
                         <a onClick={() => setOpen(false)} href="#inicio" className="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
                             Inicio
                         </a>
@@ -64,7 +73,7 @@ export default function Header() {
                             Contacto
                         </a>
                         <a
-                            href="https://wa.me/506XXXXXXXX"
+                            href="https://wa.me/50687596969"
                             target="_blank"
                             rel="noreferrer"
                             className="block rounded-md bg-indigo-500 px-3 py-2 text-base font-semibold text-white hover:bg-indigo-400"
