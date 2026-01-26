@@ -7,7 +7,7 @@ import Footer from "./components/footer";
 
 export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = ["/piscina1.jpg", "/piscina2.jpg"];
+  const images = ["/piscina1.jpeg", "/piscina2.jpeg"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -127,7 +127,126 @@ export default function Home() {
             </div>
           </div>
         </div>
+
       </section>
+
+      {/* Nuestra Historia Section */}
+      <section className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Title */}
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4">
+            Nuestra Historia
+          </h2>
+          <div className="w-24 h-1 bg-indigo-500 mx-auto mb-16"></div>
+
+          {/* Content Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="space-y-6">
+              <div className="relative">
+                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full"></div>
+                <div className="pl-8">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                    Piscinas Costa Rica
+                  </h3>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                    La división construcción de <span className="font-semibold text-indigo-600">Mercado Digital</span>,
+                    se llama Piscinas Costa Rica.
+                  </p>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                    Actualmente hemos construido y entregado satisfactoriamente{" "}
+                    <span className="font-bold text-indigo-600 text-2xl">179 piscinas</span>{" "}
+                    a nuestros clientes abarcando zonas desde:
+                  </p>
+                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-100">
+                    <ul className="grid grid-cols-2 gap-3 text-gray-700">
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Talamanca</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Limón</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Siquirres</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Guápiles</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>San Carlos</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Grecia</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Sarchi</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Alajuela</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Guanacaste</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Heredia</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Cartago</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Uvita</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Osa</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Palmar</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
+                        <span>Jaco</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <p className="text-gray-600 italic mt-4">
+                    Y continuamos expandiendo nuestra cobertura por todo Costa Rica...
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Image */}
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+                <Image
+                  src="/piscina3.jpeg"
+                  alt="Piscina Costa Rica"
+                  width={600}
+                  height={400}
+                  className="object-cover w-full h-auto transform group-hover:scale-105 transition-transform duration-500"
+                  quality={90}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </>
   );

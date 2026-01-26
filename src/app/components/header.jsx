@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
     const [open, setOpen] = useState(false);
@@ -25,12 +26,12 @@ export default function Header() {
 
                     {/* Desktop menu */}
                     <div className="hidden sm:flex items-center gap-2">
-                        <a href="#inicio" className="rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
+                        <Link href="/" className="rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
                             Inicio
-                        </a>
-                        <a href="#proyectos" className="rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
+                        </Link>
+                        <Link href="/proyects" className="rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
                             Proyectos
-                        </a>
+                        </Link>
                         <a href="#contacto" className="rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
                             Contacto
                         </a>
@@ -63,15 +64,15 @@ export default function Header() {
             {open && (
                 <div className="sm:hidden border-t border-white/10">
                     <div className="mx-auto max-w-screen-2xl px-3 py-3 space-y-2">
-                        <a onClick={() => setOpen(false)} href="#inicio" className="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
+                        <Link onClick={() => setOpen(false)} href="/" className="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
                             Inicio
-                        </a>
-                        <a onClick={() => setOpen(false)} href="#proyectos" className="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
+                        </Link>
+                        <Link onClick={() => setOpen(false)} href="/proyects" className="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
                             Proyectos
-                        </a>
-                        <a onClick={() => setOpen(false)} href="#contacto" className="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
+                        </Link>
+                        <Link onClick={() => setOpen(false)} href="#contacto" className="block rounded-md px-3 py-2 text-base font-medium text-gray-200 hover:bg-white/10 hover:text-white">
                             Contacto
-                        </a>
+                        </Link>
                         <a
                             href="https://wa.me/50687596969"
                             target="_blank"
