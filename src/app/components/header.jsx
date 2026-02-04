@@ -25,11 +25,11 @@ export default function Header() {
             ? "bg-white/90 backdrop-blur-md shadow-lg py-1"
             : "bg-gradient-to-b from-black/60 to-transparent py-4"
             }`}>
-            <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-full px-2 sm:px-8">
                 <div className="flex h-20 items-center justify-between">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-3 group">
-                        <div className="relative h-16 w-16 transition-transform duration-300 group-hover:scale-110">
+                    <Link href="/" className="flex items-center gap-4 group">
+                        <div className="relative h-20 w-20 transition-transform duration-300 group-hover:scale-105">
                             <Image
                                 src="/logo.png"
                                 alt={`${SITE_NAME} Logo`}
@@ -38,7 +38,7 @@ export default function Header() {
                                 priority
                             />
                         </div>
-                        <span className={`font-bold text-2xl tracking-tight transition-colors duration-300 ${scrolled ? "text-gray-900" : "text-white"
+                        <span className={`font-black text-2xl md:text-3xl tracking-tighter transition-colors duration-300 ${scrolled ? "text-gray-900" : "text-white"
                             }`}>
                             Piscinas <span className="text-indigo-500">Costa Rica</span>
                         </span>
@@ -88,8 +88,8 @@ export default function Header() {
 
             {/* Mobile menu - Floating Island Style */}
             <div className={`md:hidden absolute top-24 right-6 w-72 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] z-[60] ${open
-                    ? "opacity-100 scale-100 translate-y-0"
-                    : "opacity-0 scale-90 -translate-y-4 pointer-events-none"
+                ? "opacity-100 scale-100 translate-y-0"
+                : "opacity-0 scale-90 -translate-y-4 pointer-events-none"
                 }`}>
                 <div className="bg-white/80 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-[2.5rem] overflow-hidden">
                     <div className="p-6 space-y-2">
