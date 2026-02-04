@@ -1,253 +1,146 @@
-// Esta es la pagina principal
-"use client";
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import HeroSlider from "./components/HeroSlider";
+import ProjectSlider from "./components/ProjectSlider";
+import { SITE_NAME } from "@/lib/constants";
+
+export const metadata = {
+  title: `${SITE_NAME} | Inicio`,
+  description: "Construimos y mantenemos las mejores piscinas de Costa Rica. Más de 179 proyectos entregados satisfactoriamente con calidad premium.",
+};
 
 export default function Home() {
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = ["/piscina1.jpeg", "/piscina2.jpeg"];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000); // Change image every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+  const images = ["/piscina1.jpeg", "/piscina2.jpeg", "/piscina3.jpeg"];
 
   return (
-    <>
-      <div className="relative min-h-screen">
-        {/* Transparent Header */}
-        <div className="absolute top-0 left-0 right-0 z-50">
-          <Header />
-        </div>
+    <div className="bg-white">
+      <Header />
 
-        {/* Full-screen Image Slider */}
-        <div className="relative h-screen w-full overflow-hidden">
-          {images.map((src, index) => (
-            <div
-              key={src}
-              className={`absolute inset-0 transition-opacity duration-1000 ${index === currentImage ? "opacity-100" : "opacity-0"
-                }`}
-            >
-              <Image
-                src={src}
-                alt={`Piscina ${index + 1}`}
-                fill
-                className="object-cover"
-                priority={index === 0}
-                quality={100}
-                sizes="100vw"
-              />
-            </div>
-          ))}
+      {/* Hero Section - Full Height */}
+      <section id="inicio" className="relative h-screen min-h-[700px] w-full overflow-hidden">
+        <HeroSlider images={images} />
 
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/30" />
+        {/* Overlay with Gradient for visibility */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
 
-          {/* Hero Content */}
-          <div className="relative z-10 flex h-full items-center justify-center text-center">
-            <div className="max-w-4xl px-6">
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-2xl">
-                Piscinas CR
-              </h1>
-              <p className="text-xl md:text-2xl text-white/90 mb-8 drop-shadow-lg">
-                Construimos los sueños de tu hogar
-              </p>
+        {/* Hero Content */}
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <div className="max-w-5xl px-6 text-center">
+            <span className="inline-block px-4 py-1.5 bg-indigo-600/20 backdrop-blur-md border border-white/20 rounded-full text-white text-sm font-bold tracking-widest uppercase mb-8 animate-fade-in">
+              Excelencia en Construcción
+            </span>
+            <h1 className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tighter drop-shadow-2xl">
+              Piscinas <span className="text-indigo-400">Costa Rica</span>
+            </h1>
+            <h2 className="text-xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-12 font-medium leading-relaxed drop-shadow-lg text-white">
+              Creamos experiencias acuáticas de lujo que transforman tu hogar en un paraíso personal.
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a
-                href="#contacto"
-                className="inline-block bg-indigo-500 hover:bg-indigo-400 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all transform hover:scale-105 shadow-2xl"
+                href="/contacto"
+                className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-500 text-white font-black px-10 py-5 rounded-2xl text-xl transition-all transform hover:scale-105 shadow-2xl shadow-indigo-600/40"
               >
                 Solicitar Cotización
               </a>
-            </div>
-          </div>
-
-          {/* Slider Indicators */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentImage(index)}
-                className={`h-2 rounded-full transition-all ${index === currentImage
-                  ? "w-8 bg-white"
-                  : "w-2 bg-white/50 hover:bg-white/75"
-                  }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-      {/* Sobre Nosotros Section */}
-      <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Title */}
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4">
-            Sobre Nosotros
-          </h2>
-          <div className="w-24 h-1 bg-indigo-500 mx-auto mb-12"></div>
-
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 - Experience */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-              <h3 className="text-5xl font-bold text-indigo-600 mb-2">1+</h3>
-              <p className="text-gray-600 font-medium text-lg">Año de experiencia en la construcción de piscinas</p>
-            </div>
-
-            {/* Card 2 - Pools Built */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
-              <h3 className="text-5xl font-bold text-blue-600 mb-2">500+</h3>
-              <p className="text-gray-600 font-medium text-lg">Piscinas construidas</p>
-            </div>
-
-            {/* Card 3 - Satisfied Clients */}
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border border-gray-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
-                </svg>
-              </div>
-              <h3 className="text-5xl font-bold text-green-600 mb-2">100+</h3>
-              <p className="text-gray-600 font-medium text-lg">Clientes satisfechos</p>
+              <a
+                href="/proyects"
+                className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-bold px-10 py-5 rounded-2xl text-xl transition-all"
+              >
+                Ver Galería
+              </a>
             </div>
           </div>
         </div>
 
+        {/* Bottom indicator */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+          <svg className="w-8 h-8 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </section>
 
-      {/* Nuestra Historia Section */}
-      <section className="py-20 px-6 bg-gradient-to-b from-gray-50 to-white">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Title */}
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-800 mb-4">
-            Nuestra Historia
-          </h2>
-          <div className="w-24 h-1 bg-indigo-500 mx-auto mb-16"></div>
-
-          {/* Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <div className="space-y-6">
-              <div className="relative">
-                <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-500 to-purple-600 rounded-full"></div>
-                <div className="pl-8">
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                    Piscinas Costa Rica
-                  </h3>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                    La división construcción de <span className="font-semibold text-indigo-600">Mercado Digital</span>,
-                    se llama Piscinas Costa Rica.
-                  </p>
-                  <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                    Actualmente hemos construido y entregado satisfactoriamente{" "}
-                    <span className="font-bold text-indigo-600 text-2xl">179 piscinas</span>{" "}
-                    a nuestros clientes abarcando zonas desde:
-                  </p>
-                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-100">
-                    <ul className="grid grid-cols-2 gap-3 text-gray-700">
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Talamanca</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Limón</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Siquirres</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Guápiles</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>San Carlos</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Grecia</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Sarchi</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Alajuela</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Guanacaste</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Heredia</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Cartago</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Uvita</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Osa</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Palmar</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <span className="w-2 h-2 bg-indigo-500 rounded-full"></span>
-                        <span>Jaco</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <p className="text-gray-600 italic mt-4">
-                    Y continuamos expandiendo nuestra cobertura por todo Costa Rica...
-                  </p>
-                </div>
+      {/* Stats Section - Floating Cards */}
+      <section id="sobre-nosotros" className="relative z-30 -mt-20 px-6 scroll-mt-24">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            { label: 'Años de Experiencia', value: '7+', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', color: 'from-blue-600 to-indigo-600' },
+            { label: 'Proyectos Entregados', value: '500+', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', color: 'from-indigo-600 to-purple-600' },
+            { label: 'Clientes Satisfechos', value: '100%', icon: 'M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5', color: 'from-purple-600 to-pink-600' }
+          ].map((stat, i) => (
+            <div key={i} className="bg-white p-10 rounded-[2.5rem] shadow-2xl shadow-indigo-100 flex flex-col items-center text-center transition-all hover:-translate-y-4 border border-gray-100">
+              <div className={`w-16 h-16 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-indigo-200 text-white`}>
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={stat.icon} />
+                </svg>
               </div>
+              <div className="text-5xl font-black text-gray-900 mb-2">{stat.value}</div>
+              <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">{stat.label}</p>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Image */}
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl opacity-20 group-hover:opacity-30 transition-opacity blur-xl"></div>
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
-                <Image
-                  src="/piscina3.jpeg"
-                  alt="Piscina Costa Rica"
-                  width={600}
-                  height={400}
-                  className="object-cover w-full h-auto transform group-hover:scale-105 transition-transform duration-500"
-                  quality={90}
-                />
-              </div>
+      {/* Services/Excellence Section */}
+      <section className="py-32 px-6">
+        <div className="max-w-6xl mx-auto items-center grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div>
+            <span className="text-indigo-600 font-black text-sm uppercase tracking-[0.3em] mb-4 block">Nuestro Compromiso</span>
+            <h3 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-[1.1]">
+              Calidad que <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Perdura</span>
+            </h3>
+            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+              En {SITE_NAME}, no solo construimos piscinas; creamos el centro de entretenimiento de tu hogar.
+              Utilizamos materiales de primera y tecnología de punta para garantizar durabilidad y bajo mantenimiento.
+            </p>
+            <div className="space-y-6">
+              {[
+                'Construcción en Concreto y Fibra de Vidrio',
+                'Sistemas de Automatización Inteligente',
+                'Mantenimiento Especializado Profesional',
+                'Diseño Personalizado en 3D'
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-4">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
+                  </div>
+                  <span className="text-lg font-bold text-gray-700">{item}</span>
+                </div>
+              ))}
             </div>
           </div>
+          <div className="relative">
+            <div className="absolute -inset-6 bg-indigo-100 rounded-[3rem] -rotate-3"></div>
+            <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <Image
+                src="/piscina3.jpeg"
+                alt={`Proyecto de piscina de lujo por ${SITE_NAME}`}
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects - Using our new Slider */}
+      <section className="py-32 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <span className="text-indigo-600 font-black text-sm uppercase tracking-[0.3em] mb-4 text-center md:text-left block">Portafolio Premium</span>
+            <h3 className="text-5xl font-black text-gray-900 text-center md:text-left tracking-tight">Proyectos <span className="text-indigo-600 underline decoration-indigo-200 underline-offset-8">Destacados</span></h3>
+          </div>
+          <a href="/proyects" className="bg-white border-2 border-indigo-600 text-indigo-600 font-bold px-8 py-4 rounded-2xl hover:bg-indigo-600 hover:text-white transition-all text-center">
+            Ver todos los proyectos
+          </a>
+        </div>
+        <div className="max-w-screen-2xl mx-auto px-4">
+          <ProjectSlider limit={2} />
         </div>
       </section>
 
       <Footer />
-    </>
+    </div>
   );
 }
