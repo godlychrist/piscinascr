@@ -86,36 +86,56 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile menu */}
-            <div className={`md:hidden absolute top-full left-0 right-0 transition-all duration-300 overflow-hidden bg-white shadow-2xl ${open ? "max-h-[400px] border-t border-gray-100" : "max-h-0"
+            {/* Mobile menu - Floating Island Style */}
+            <div className={`md:hidden absolute top-24 right-6 w-72 transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] z-[60] ${open
+                    ? "opacity-100 scale-100 translate-y-0"
+                    : "opacity-0 scale-90 -translate-y-4 pointer-events-none"
                 }`}>
-                <div className="px-6 py-8 space-y-4">
-                    {[
-                        { name: 'Inicio', href: '/' },
-                        { name: 'Proyectos', href: '/proyects' },
-                        { name: 'Contacto', href: '/contacto' },
-                    ].map((link) => (
-                        <Link
-                            key={link.name}
-                            onClick={() => setOpen(false)}
-                            href={link.href}
-                            className="block text-xl font-bold text-gray-800 hover:text-indigo-600 transition-colors"
-                        >
-                            {link.name}
-                        </Link>
-                    ))}
-                    <div className="pt-4">
-                        <a
-                            href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="block text-center rounded-2xl bg-indigo-600 px-6 py-4 text-lg font-bold text-white shadow-xl shadow-indigo-200"
-                        >
-                            WhatsApp Directo
-                        </a>
+                <div className="bg-white/80 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.1)] rounded-[2.5rem] overflow-hidden">
+                    <div className="p-6 space-y-2">
+                        {[
+                            { name: 'Inicio', href: '/' },
+                            { name: 'Proyectos', href: '/proyects' },
+                            { name: 'Contacto', href: '/contacto' },
+                        ].map((link) => (
+                            <Link
+                                key={link.name}
+                                onClick={() => setOpen(false)}
+                                href={link.href}
+                                className="flex items-center justify-between group rounded-[1.5rem] px-5 py-4 transition-all hover:bg-indigo-600 hover:text-white"
+                            >
+                                <span className={`text-lg font-bold ${scrolled ? 'text-gray-800' : 'text-gray-900'} group-hover:text-white transition-colors`}>
+                                    {link.name}
+                                </span>
+                                <div className="w-8 h-8 rounded-full bg-indigo-50 group-hover:bg-white/20 flex items-center justify-center transition-colors">
+                                    <svg className="w-4 h-4 text-indigo-600 group-hover:text-white transform group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </div>
+                            </Link>
+                        ))}
+
+                        <div className="pt-4 px-2">
+                            <a
+                                href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex items-center justify-center gap-3 rounded-[1.5rem] bg-indigo-600 px-6 py-5 text-base font-black text-white shadow-xl shadow-indigo-200 active:scale-95 transition-all hover:bg-indigo-700"
+                            >
+                                WhatsApp
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            {/* Click-outside overlay (Invisible but closes menu) */}
+            {open && (
+                <div
+                    className="fixed inset-0 z-[55] md:hidden"
+                    onClick={() => setOpen(false)}
+                />
+            )}
         </nav>
     );
 }
