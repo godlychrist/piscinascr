@@ -66,7 +66,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { label: 'Años de Experiencia', value: '7+', icon: 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', color: 'from-blue-600 to-indigo-600' },
-            { label: 'Proyectos Entregados', value: '500+', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', color: 'from-indigo-600 to-purple-600' },
+            { label: 'Proyectos Entregados', value: '600+', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', color: 'from-indigo-600 to-purple-600' },
             { label: 'Clientes Satisfechos', value: '100%', icon: 'M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5', color: 'from-purple-600 to-pink-600' }
           ].map((stat, i) => (
             <div key={i} className="bg-white p-10 rounded-[2.5rem] shadow-2xl shadow-indigo-100 flex flex-col items-center text-center transition-all hover:-translate-y-4 border border-gray-100">
@@ -79,6 +79,68 @@ export default function Home() {
               <p className="text-gray-500 font-bold uppercase tracking-widest text-xs">{stat.label}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* History Section */}
+      <section id="historia" className="py-32 px-6 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2 relative">
+              <div className="absolute -left-10 -top-10 w-64 h-64 bg-indigo-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+              <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+
+              <div className="relative">
+                <span className="text-indigo-600 font-black text-sm uppercase tracking-[0.3em] mb-4 block">Nuestra Trayectoria</span>
+                <h3 className="text-5xl md:text-6xl font-black text-gray-900 mb-8 leading-[1.1]">
+                  Una Historia de <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Familia y Visión</span>
+                </h3>
+
+                <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+                  <p>
+                    Piscinas Costa Rica nació hace 7 años en La Palmera de San Carlos, del sueño de una familia de seis hermanos que decidió apostar por el trabajo duro, la disciplina y la unión para construir una empresa propia y dejar huella en el país.
+                  </p>
+                  <p>
+                    Después de probar distintos caminos en el comercio digital, encontraron la oportunidad que transformó su historia: <span className="font-bold text-gray-900 text-indigo-600">fabricar piscinas</span>. Desde el primer proyecto entendieron que no se trataba solo de construir, sino de entregar calidad real, con materiales de alto nivel, acabados impecables y tiempos de entrega rápidos.
+                  </p>
+                  <p>
+                    Ese compromiso nos llevó a crecer sin detenernos. Hoy somos una de las empresas líderes del sector, con más de <span className="font-bold text-indigo-600">600 piscinas construidas</span> en todo Costa Rica y un equipo experto que domina cada etapa del proceso.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:w-1/2">
+              <div className="relative group">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-[3rem] opacity-20 blur-2xl group-hover:opacity-30 transition-opacity"></div>
+                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
+                  <Image
+                    src="/piscina2.jpeg"
+                    alt="Historia de éxito Piscinas Costa Rica"
+                    width={800}
+                    height={1000}
+                    className="object-cover h-[600px] w-full transform group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-10">
+                    <p className="text-white font-medium italic text-lg shadow-text">
+                      "No solo construimos piscinas: construimos sueños, confianza y proyectos que aumentan el valor de tu hogar."
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-indigo-50 p-8 rounded-3xl border border-indigo-100">
+              <h4 className="text-xl font-black text-indigo-900 mb-4">Innovación Constante</h4>
+              <p className="text-gray-700">Hoy también desarrollamos casas modulares, llevando el mismo estándar de excelencia que nos convirtió en referencia nacional en piscinas.</p>
+            </div>
+            <div className="bg-purple-50 p-8 rounded-3xl border border-purple-100">
+              <h4 className="text-xl font-black text-purple-900 mb-4">Nuestra Promesa</h4>
+              <p className="text-gray-700">Nuestro éxito se basa en algo simple pero poderoso: cumplimos lo que prometemos y superamos expectativas, demostrando por qué somos la mejor opción del país.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -99,7 +161,6 @@ export default function Home() {
                 'Construcción en Concreto y Fibra de Vidrio',
                 'Sistemas de Automatización Inteligente',
                 'Mantenimiento Especializado Profesional',
-                'Diseño Personalizado en 3D'
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-4">
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center text-green-600 shrink-0">
