@@ -73,7 +73,7 @@ export default function ProjectSlider({ limit }) {
                 <>
                     <button
                         onClick={prevSlide}
-                        className="absolute left-[-20px] top-1/2 -translate-y-1/2 z-20 bg-white shadow-xl rounded-full p-3 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300 opacity-0 group-hover/slider:opacity-100 hidden md:block focus:opacity-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="absolute left-[-20px] top-1/2 -translate-y-1/2 z-20 bg-white shadow-xl rounded-full p-3 text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 opacity-0 group-hover/slider:opacity-100 hidden md:block focus:opacity-100 focus:ring-2 focus:ring-brand-cyan outline-none"
                         aria-label="Anterior proyecto"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -83,7 +83,7 @@ export default function ProjectSlider({ limit }) {
 
                     <button
                         onClick={nextSlide}
-                        className="absolute right-[-20px] top-1/2 -translate-y-1/2 z-20 bg-white shadow-xl rounded-full p-3 text-indigo-600 hover:bg-indigo-600 hover:text-white transition-all duration-300 opacity-0 group-hover/slider:opacity-100 hidden md:block focus:opacity-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                        className="absolute right-[-20px] top-1/2 -translate-y-1/2 z-20 bg-white shadow-xl rounded-full p-3 text-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 opacity-0 group-hover/slider:opacity-100 hidden md:block focus:opacity-100 focus:ring-2 focus:ring-brand-cyan outline-none"
                         aria-label="Siguiente proyecto"
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -93,7 +93,7 @@ export default function ProjectSlider({ limit }) {
                 </>
             )}
 
-            <div className="overflow-hidden">
+            <div className="overflow-hidden -mx-4 px-4 py-12 -my-12">
                 <div
                     className={`flex transition-transform duration-700 ease-in-out ${!hasMultiplePages ? 'justify-center' : ''}`}
                     style={{
@@ -109,7 +109,7 @@ export default function ProjectSlider({ limit }) {
                             style={{ width: `${100 / itemsToShow}%` }}
                             role="listitem"
                         >
-                            <article className="bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 h-full flex flex-col">
+                            <article className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 h-full flex flex-col">
                                 {/* Image Section */}
                                 <div className="relative h-72 w-full overflow-hidden">
                                     <Image
@@ -119,7 +119,7 @@ export default function ProjectSlider({ limit }) {
                                         className="object-cover transition-transform duration-700 hover:scale-110"
                                     />
                                     <div className="absolute top-4 left-4">
-                                        <span className="bg-white/90 backdrop-blur-sm text-indigo-600 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
+                                        <span className="bg-white/90 backdrop-blur-sm text-brand-blue px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
                                             {project.type}
                                         </span>
                                     </div>
@@ -127,7 +127,7 @@ export default function ProjectSlider({ limit }) {
 
                                 {/* Content Section */}
                                 <div className="p-8 flex-grow flex flex-col">
-                                    <div className="flex items-center text-indigo-500 mb-3">
+                                    <div className="flex items-center text-brand-cyan mb-3">
                                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -141,23 +141,18 @@ export default function ProjectSlider({ limit }) {
 
                                     {renderStars(project.rating)}
 
-                                    <p className="text-gray-600 mb-6 leading-relaxed text-sm line-clamp-3 font-medium">
+                                    <p className="text-gray-600 mb-6 leading-relaxed text-sm font-medium">
                                         {project.description}
                                     </p>
 
                                     <div className="flex flex-wrap gap-2 mb-8 mt-auto">
                                         {project.features.map((feature, idx) => (
-                                            <span key={idx} className="bg-indigo-50 text-indigo-600 text-[10px] font-bold px-2 py-1 rounded-lg uppercase tracking-wider">
+                                            <span key={idx} className="bg-brand-cyan/10 text-brand-blue text-[10px] font-bold px-2 py-1 rounded-lg uppercase tracking-wider">
                                                 {feature}
                                             </span>
                                         ))}
                                     </div>
 
-                                    <div className="pt-6 border-t border-gray-100">
-                                        <button className="w-full bg-gray-900 text-white py-4 rounded-xl font-bold hover:bg-indigo-600 focus:bg-indigo-600 transition-colors shadow-lg active:scale-95 outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                                            Ver Detalles del Proyecto
-                                        </button>
-                                    </div>
                                 </div>
                             </article>
                         </div>
@@ -174,7 +169,7 @@ export default function ProjectSlider({ limit }) {
                             role="tab"
                             aria-selected={currentIndex === i}
                             onClick={() => setCurrentIndex(i)}
-                            className={`h-2 transition-all duration-300 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 outline-none ${currentIndex === i ? 'w-8 bg-indigo-600' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
+                            className={`h-2 transition-all duration-300 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-brand-cyan outline-none ${currentIndex === i ? 'w-8 bg-brand-blue' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
                             aria-label={`Ir al grupo de proyectos ${i + 1}`}
                         />
                     ))}
