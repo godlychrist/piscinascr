@@ -57,7 +57,7 @@ export default function Header() {
                             </div>
                             <span className={`font-black text-2xl md:text-3xl tracking-tighter transition-colors duration-300 ${scrolled ? "text-gray-900" : "text-white"
                                 }`}>
-                                Piscinas <span className="text-indigo-500">Costa Rica</span>
+                                Piscinas <span className="text-brand-cyan">Costa Rica</span>
                             </span>
                         </Link>
 
@@ -71,8 +71,8 @@ export default function Header() {
                                         href={link.href}
                                         aria-current={isActive ? "page" : undefined}
                                         className={`rounded-full px-5 py-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 ${scrolled
-                                            ? isActive ? "bg-indigo-600 text-white" : "text-gray-700 hover:bg-gray-100 hover:text-indigo-600"
-                                            : isActive ? "bg-white text-indigo-600" : "text-white/90 hover:bg-white/20 hover:text-white"
+                                            ? isActive ? "bg-brand-blue text-white" : "text-gray-700 hover:bg-gray-100 hover:text-brand-cyan"
+                                            : isActive ? "bg-white text-brand-blue" : "text-white/90 hover:bg-white/20 hover:text-white"
                                             }`}
                                     >
                                         {link.name}
@@ -84,7 +84,7 @@ export default function Header() {
                                 href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="ml-4 rounded-full bg-indigo-600 px-6 py-2.5 text-sm font-extrabold text-white uppercase tracking-widest hover:bg-indigo-500 transition-all shadow-lg hover:shadow-indigo-500/30"
+                                className="ml-4 rounded-full bg-brand-blue px-6 py-2.5 text-sm font-extrabold text-white uppercase tracking-widest hover:bg-brand-cyan transition-all shadow-lg hover:shadow-brand-cyan/30"
                             >
                                 WhatsApp
                             </a>
@@ -123,14 +123,14 @@ export default function Header() {
                                         onClick={() => setOpen(false)}
                                         href={link.href}
                                         aria-current={isActive ? "page" : undefined}
-                                        className={`flex items-center justify-between group rounded-[1.5rem] px-5 py-4 transition-all ${isActive ? "bg-indigo-600 text-white" : "hover:bg-indigo-600 hover:text-white"
+                                        className={`flex items-center justify-between group rounded-[1.5rem] px-5 py-4 transition-all ${isActive ? "bg-brand-blue text-white" : "hover:bg-brand-blue hover:text-white"
                                             }`}
                                     >
                                         <span className={`text-lg font-bold ${isActive ? 'text-white' : scrolled ? 'text-gray-800' : 'text-gray-900'} group-hover:text-white transition-colors`}>
                                             {link.name}
                                         </span>
-                                        <div className={`w-8 h-8 rounded-full ${isActive ? "bg-white/20" : "bg-indigo-50"} group-hover:bg-white/20 flex items-center justify-center transition-colors`}>
-                                            <svg className={`w-4 h-4 ${isActive ? 'text-white' : 'text-indigo-600'} group-hover:text-white transform group-hover:translate-x-0.5 transition-all`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <div className={`w-8 h-8 rounded-full ${isActive ? "bg-white/20" : "bg-brand-cyan/10"} group-hover:bg-white/20 flex items-center justify-center transition-colors`}>
+                                            <svg className={`w-4 h-4 ${isActive ? 'text-white' : 'text-brand-blue'} group-hover:text-white transform group-hover:translate-x-0.5 transition-all`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" />
                                             </svg>
                                         </div>
@@ -143,7 +143,7 @@ export default function Header() {
                                     href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/[^0-9]/g, '')}`}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="flex items-center justify-center gap-3 rounded-[1.5rem] bg-indigo-600 px-6 py-5 text-base font-black text-white shadow-xl shadow-indigo-200 active:scale-95 transition-all hover:bg-indigo-700"
+                                    className="flex items-center justify-center gap-3 rounded-[1.5rem] bg-brand-blue px-6 py-5 text-base font-black text-white shadow-xl shadow-brand-blue/20 active:scale-95 transition-all hover:bg-brand-cyan"
                                 >
                                     WhatsApp
                                 </a>
