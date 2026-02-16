@@ -103,7 +103,7 @@ export default function ContactForm() {
                         value={formData.name}
                         onChange={handleChange}
                         disabled={isSubmitting}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-cyan focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
                         placeholder="Tu nombre"
                     />
                 </div>
@@ -121,7 +121,7 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         disabled={isSubmitting}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-cyan focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
                         placeholder="tu@email.com"
                     />
                 </div>
@@ -139,7 +139,7 @@ export default function ContactForm() {
                         value={formData.phone}
                         onChange={handleChange}
                         disabled={isSubmitting}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-cyan focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
                         placeholder="+506 1234-5678"
                     />
                 </div>
@@ -157,7 +157,7 @@ export default function ContactForm() {
                         value={formData.subject}
                         onChange={handleChange}
                         disabled={isSubmitting}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-cyan focus:border-transparent transition-all outline-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
                         placeholder="¿En qué podemos ayudarte?"
                     />
                 </div>
@@ -175,7 +175,7 @@ export default function ContactForm() {
                         onChange={handleChange}
                         disabled={isSubmitting}
                         rows={5}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none resize-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-cyan focus:border-transparent transition-all outline-none resize-none text-gray-900 disabled:bg-gray-100 disabled:cursor-not-allowed"
                         placeholder="Cuéntanos sobre tu proyecto..."
                     ></textarea>
                 </div>
@@ -184,7 +184,7 @@ export default function ContactForm() {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-brand-blue to-brand-teal hover:from-brand-cyan hover:to-brand-blue text-white font-semibold px-8 py-4 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                     {isSubmitting ? (
                         <span className="flex items-center justify-center">
