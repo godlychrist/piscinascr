@@ -1,13 +1,21 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Tu correo donde quieres recibir las notificaciones
 const TO_EMAIL = 'cristopherquiros2@gmail.com';
 
 export async function POST(request) {
   try {
+    const key = process.env.RESEND_API_KEY;
+    if (!key) {
+      console.error('Error: RESEND_API_KEY no está configurada en las variables de entorno.');
+      return NextResponse.json(
+        { error: 'Error de configuración en el servidor' },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(key);
     const body = await request.json();
     const { name, email, phone, subject, message } = body;
 
