@@ -58,7 +58,7 @@ export default function HeroSlider({ images }) {
                         aria-selected={index === currentImage}
                         aria-label={`Ver imagen ${index + 1}`}
                         onClick={() => setCurrentImage(index)}
-                        className={`h-2 rounded-full transition-all focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 outline-none ${index === currentImage
+                        className={`h-2 rounded-full transition-all focus:ring-2 focus:ring-offset-2 focus:ring-brand-cyan outline-none ${index === currentImage
                             ? "w-10 bg-white"
                             : "w-3 bg-white/50 hover:bg-white/75"
                             }`}
