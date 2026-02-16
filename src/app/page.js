@@ -7,7 +7,10 @@ import { SITE_NAME } from "@/lib/constants";
 
 export const metadata = {
   title: `${SITE_NAME} | Inicio`,
-  description: "Construimos y mantenemos las mejores piscinas de Costa Rica. Más de 179 proyectos entregados satisfactoriamente con calidad premium.",
+  description: "Construimos y mantenemos las mejores piscinas de Costa Rica. Más de 600 proyectos entregados satisfactoriamente con calidad premium.",
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function Home() {
