@@ -8,14 +8,16 @@ const montserrat = Montserrat({
   style: ["normal", "italic"],
 });
 
+import StructuredData from "./components/StructuredData";
+
 export const metadata = {
   metadataBase: new URL('https://piscinascr.com'),
   title: {
-    default: `${SITE_NAME} | Construcción de Piscinas de Lujo`,
+    default: `${SITE_NAME} | Construcción de Piscinas de Lujo en Costa Rica`,
     template: `%s | ${SITE_NAME}`
   },
-  description: "Líderes en construcción, mantenimiento y remodelación de piscinas en Costa Rica. Especialistas en concreto y fibra de vidrio con acabados premium.",
-  keywords: ["piscinas costa rica", "construcción de piscinas", "mantenimiento de piscinas", "piscinas de concreto", "piscinas de fibra de vidrio", "remodelación de piscinas", "jacuzzis costa rica"],
+  description: "Líderes en construcción, mantenimiento y remodelación de piscinas en Costa Rica. Especialistas en concreto y fibra de vidrio con acabados premium y garantía total.",
+  keywords: ["piscinas costa rica", "construcción de piscinas", "mantenimiento de piscinas", "piscinas de concreto", "piscinas de fibra de vidrio", "remodelación de piscinas", "jacuzzis costa rica", "piscinas san carlos", "piscinas alajuela"],
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
@@ -24,13 +26,38 @@ export const metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: '/',
+  },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/logo.png', // Fallback to logo if apple-touch-icon is missing
+  },
   openGraph: {
-    title: SITE_NAME,
-    description: "Transforma tu espacio exterior en un paraíso personal con los expertos en piscinas de Costa Rica.",
+    title: `${SITE_NAME} | Construcción de Piscinas`,
+    description: "Transforma tu espacio exterior en un paraíso personal con los expertos en piscinas de Costa Rica. Más de 600 proyectos entregados.",
     url: 'https://piscinascr.com',
     siteName: SITE_NAME,
+    images: [
+      {
+        url: '/piscina1.jpeg',
+        width: 1200,
+        height: 630,
+        alt: `${SITE_NAME} - Piscinas de Lujo`,
+      },
+    ],
     locale: 'es_CR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${SITE_NAME} | Piscinas en Costa Rica`,
+    description: 'Expertos en diseño y construcción de piscinas de lujo. ¡Cotiza tu proyecto hoy!',
+    images: ['/piscina1.jpeg'],
+  },
+  verification: {
+    google: 'google-site-verification-placeholder',
+    // yandex: 'yandex-verification-placeholder',
   },
   robots: {
     index: true,
@@ -48,6 +75,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="es" className={`${montserrat.variable} scroll-smooth`}>
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={`${montserrat.className} ${montserrat.variable} antialiased selection:bg-brand-cyan selection:text-white`}
       >
