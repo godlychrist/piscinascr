@@ -6,6 +6,9 @@ import { SITE_NAME } from "@/lib/constants";
 export const metadata = {
     title: `Proyectos de Piscinas | ${SITE_NAME}`,
     description: "Explora nuestra galería de proyectos terminados en Costa Rica. Galería de piscinas de fibra de vidrio y concreto construidas con los más altos estándares.",
+    alternates: {
+        canonical: '/proyects',
+    },
 };
 
 export default function ProyectsPage() {

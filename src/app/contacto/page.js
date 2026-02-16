@@ -3,6 +3,14 @@ import Footer from "../components/footer";
 import ContactForm from "../components/ContactForm";
 import { SITE_NAME, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 
+export const metadata = {
+    title: `Contacto | ${SITE_NAME}`,
+    description: `Contacta con los expertos en piscinas en Costa Rica. Solicita tu presupuesto sin compromiso para construcción, mantenimiento o remodelación de piscinas.`,
+    alternates: {
+        canonical: '/contacto',
+    },
+};
+
 const SocialCardIcon = ({ name }) => {
     switch (name.toLowerCase()) {
         case 'facebook':
