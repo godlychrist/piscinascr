@@ -6,6 +6,7 @@ import { SITE_NAME, CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 const SocialCardIcon = ({ name }) => {
     switch (name.toLowerCase()) {
         case 'facebook':
+        case 'facebook alternativo':
             return (
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -34,20 +35,20 @@ export default function ContactoPage() {
             <Header />
 
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gradient-to-br from-indigo-900 via-indigo-800 to-purple-900 py-24 px-6 text-white text-center">
+            <section className="relative overflow-hidden bg-gradient-to-br from-brand-blue via-brand-teal to-brand-blue/90 py-24 px-6 text-white text-center">
                 <div className="absolute inset-0 opacity-20">
-                    <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500 rounded-full blur-3xl"></div>
-                    <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-500 rounded-full blur-3xl"></div>
+                    <div className="absolute -top-24 -left-24 w-96 h-96 bg-brand-cyan rounded-full blur-3xl"></div>
+                    <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-brand-teal rounded-full blur-3xl"></div>
                 </div>
 
                 <div className="relative max-w-4xl mx-auto">
-                    <span className="inline-block px-4 py-1.5 bg-indigo-500/30 backdrop-blur-md border border-indigo-400/30 rounded-full text-indigo-200 text-sm font-bold tracking-wider uppercase mb-6">
+                    <span className="inline-block px-4 py-1.5 bg-brand-cyan/30 backdrop-blur-md border border-brand-cyan/30 rounded-full text-brand-cyan text-sm font-bold tracking-wider uppercase mb-6">
                         Comienza tu transformación
                     </span>
-                    <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-                        Hablemos de tu <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-300">Próximo Sueño</span>
+                    <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
+                        Hablemos de tu <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-white">Próximo Sueño</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-indigo-100/80 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto leading-relaxed">
                         En {SITE_NAME} estamos listos para asesorarte y convertir tu espacio en un oasis de relajación y elegancia.
                     </p>
                 </div>
@@ -62,7 +63,7 @@ export default function ContactoPage() {
                         <div className="lg:col-span-4 space-y-6">
                             {/* Phone */}
                             <div className="bg-white rounded-[2rem] p-8 shadow-xl shadow-gray-200/50 border border-gray-100 transition-all hover:shadow-2xl hover:-translate-y-1 text-center sm:text-left">
-                                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-blue-600 mx-auto sm:mx-0">
+                                <div className="w-14 h-14 bg-brand-blue/10 rounded-2xl flex items-center justify-center mb-6 text-brand-blue mx-auto sm:mx-0">
                                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                     </svg>
@@ -81,20 +82,20 @@ export default function ContactoPage() {
                                 </div>
                                 <h3 className="text-gray-500 text-xs font-black uppercase tracking-widest mb-2">WhatsApp Directo</h3>
                                 <p className="text-2xl font-black text-gray-900 mb-1">{CONTACT_INFO.whatsapp}</p>
-                                <a href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-indigo-600 font-bold flex items-center justify-center sm:justify-start hover:underline mt-2">
+                                <a href={`https://wa.me/${CONTACT_INFO.whatsapp.replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" className="text-brand-blue font-bold flex items-center justify-center sm:justify-start hover:underline mt-2">
                                     Enviar mensaje <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                 </a>
                             </div>
 
                             {/* Email */}
                             <div className="bg-white rounded-[2rem] p-8 shadow-xl shadow-gray-200/50 border border-gray-100 transition-all hover:shadow-2xl hover:-translate-y-1 text-center sm:text-left">
-                                <div className="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6 text-indigo-600 mx-auto sm:mx-0">
+                                <div className="w-14 h-14 bg-brand-cyan/10 rounded-2xl flex items-center justify-center mb-6 text-brand-cyan mx-auto sm:mx-0">
                                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
                                 </div>
                                 <h3 className="text-gray-500 text-xs font-black uppercase tracking-widest mb-2">Correo Soporte</h3>
-                                <a href={`mailto:${CONTACT_INFO.email}`} className="text-xl font-black text-gray-900 break-all hover:text-indigo-600 transition-colors tracking-tight">{CONTACT_INFO.email}</a>
+                                <a href={`mailto:${CONTACT_INFO.email}`} className="text-xl font-black text-gray-900 break-all hover:text-brand-cyan transition-colors tracking-tight">{CONTACT_INFO.email}</a>
                             </div>
                         </div>
 
@@ -102,7 +103,7 @@ export default function ContactoPage() {
                         <div className="lg:col-span-8">
                             <div className="bg-white rounded-[3rem] shadow-2xl shadow-gray-200/60 overflow-hidden border border-gray-100">
                                 <header className="bg-gray-900 p-8 md:p-12 text-white relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-600/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-blue/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                                     <div className="relative z-10">
                                         <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight">Presupuesto sin Compromiso</h2>
                                         <p className="text-gray-400 text-lg md:text-xl max-w-xl font-medium">Cuéntanos sobre tu proyecto y uno de nuestros arquitectos de piscinas se pondrá en contacto contigo.</p>
@@ -120,25 +121,25 @@ export default function ContactoPage() {
             {/* Social Cards Section */}
             <section className="py-24 bg-white">
                 <div className="max-w-4xl mx-auto px-6 text-center">
-                    <h2 className="text-indigo-600 font-black text-xs uppercase tracking-[0.4em] mb-4">Conéctate con Nosotros</h2>
-                    <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-16 tracking-tight">Síguenos en <span className="text-indigo-600">Redes Sociales</span></h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                    <h2 className="text-brand-blue font-black text-xs uppercase tracking-[0.4em] mb-4">Conéctate con Nosotros</h2>
+                    <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-16 tracking-tight">Síguenos en <span className="text-brand-blue">Redes Sociales</span></h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {SOCIAL_LINKS.map((social) => (
                             <a
                                 key={social.name}
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex flex-col items-center bg-gray-50 hover:bg-white border border-transparent hover:border-indigo-100 p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-indigo-100/50"
+                                className="group flex flex-col items-center bg-gray-50 hover:bg-white border border-transparent hover:border-brand-cyan/20 p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-brand-blue/10"
                             >
-                                <div className={`w-20 h-20 shadow-lg rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 ${social.name.toLowerCase() === 'facebook' ? 'bg-blue-600 text-white shadow-blue-200' :
-                                        social.name.toLowerCase() === 'instagram' ? 'bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 text-white shadow-red-200' :
-                                            'bg-black text-white shadow-gray-200'
+                                <div className={`w-20 h-20 shadow-lg rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 ${social.name.toLowerCase().includes('facebook') ? 'bg-brand-blue text-white shadow-brand-blue/20' :
+                                    social.name.toLowerCase() === 'instagram' ? 'bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 text-white shadow-pink-200' :
+                                        'bg-black text-white shadow-gray-200'
                                     }`}>
                                     <SocialCardIcon name={social.name} />
                                 </div>
                                 <span className="text-xl font-black text-gray-900 mb-1">{social.name}</span>
-                                <span className="text-indigo-600 text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Ver Perfil</span>
+                                <span className="text-brand-blue text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Ver Perfil</span>
                             </a>
                         ))}
                     </div>
