@@ -30,8 +30,8 @@ export const metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/logo.png', // Fallback to logo if apple-touch-icon is missing
+    icon: '/icon.png',
+    apple: '/logo.png',
   },
   openGraph: {
     title: `${SITE_NAME} | Construcción de Piscinas`,
