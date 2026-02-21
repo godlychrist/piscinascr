@@ -81,6 +81,27 @@ export default function ContactoPage() {
                                 <p className="text-gray-500 text-sm font-medium">Horario: {CONTACT_INFO.officeHours.weekdays}</p>
                             </div>
 
+                            {/* Facebook Alternativo - Compact Placement */}
+                            <a
+                                href={SOCIAL_LINKS.find(s => s.name.toLowerCase().includes('alternativo'))?.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-white rounded-[1.5rem] p-5 shadow-lg shadow-gray-200/50 border border-gray-100 transition-all hover:shadow-xl hover:-translate-y-1 flex items-center gap-4 group"
+                            >
+                                <div className="w-12 h-12 bg-brand-blue/10 rounded-xl flex items-center justify-center text-brand-blue shrink-0 group-hover:bg-brand-blue group-hover:text-white transition-colors duration-300">
+                                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 className="text-gray-400 text-[10px] font-black uppercase tracking-widest mb-0.5">Facebook Alternativo</h3>
+                                    <p className="text-sm font-black text-gray-900 group-hover:text-brand-blue transition-colors">Visitar Página Secundaria</p>
+                                </div>
+                                <svg className="w-4 h-4 ml-auto text-gray-300 group-hover:text-brand-blue transform group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+
                             {/* WhatsApp */}
                             <div className="bg-white rounded-[2rem] p-8 shadow-xl shadow-gray-200/50 border border-gray-100 transition-all hover:shadow-2xl hover:-translate-y-1 text-center sm:text-left">
                                 <div className="w-14 h-14 bg-green-50 rounded-2xl flex items-center justify-center mb-6 text-green-600 mx-auto sm:mx-0">
@@ -131,8 +152,8 @@ export default function ContactoPage() {
                 <div className="max-w-4xl mx-auto px-6 text-center">
                     <h2 className="text-brand-blue font-black text-xs uppercase tracking-[0.4em] mb-4">Conéctate con Nosotros</h2>
                     <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-16 tracking-tight">Síguenos en <span className="text-brand-blue">Redes Sociales</span></h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {SOCIAL_LINKS.map((social) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {SOCIAL_LINKS.filter(s => !s.name.toLowerCase().includes('alternativo')).map((social) => (
                             <a
                                 key={social.name}
                                 href={social.href}
