@@ -175,7 +175,7 @@ export default function Home() {
             <div className="absolute -inset-6 bg-brand-cyan/10 rounded-[3rem] -rotate-3"></div>
             <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden shadow-2xl">
               <Image
-                src="/piscina3.jpeg"
+                src="/piscina1.jpeg"
                 alt={`Proyecto de piscina de lujo por ${SITE_NAME}`}
                 fill
                 className="object-cover"
