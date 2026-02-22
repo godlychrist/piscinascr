@@ -21,13 +21,13 @@ export const SOCIAL_LINKS = [
 export const PROJECTS = [
     {
         id: 1,
-        title: "Residencial Premium",
+        title: "Hotel 360",
         location: "Venecia Las Nubes, Hotel 360",
         description: "Construcción integral en concreto con acabados en vitrocerámica española y sistema de filtración inteligente de última generación.",
         image: "/piscina1.jpeg",
         type: "Concreto",
         rating: 5,
-        features: ["Iluminación LED", "Vitrocerámica", "Climatizada"]
+        features: ["Iluminación LED", "Vitrocerámica", "Climatizada",]
     },
     {
         id: 2,
@@ -56,7 +56,7 @@ export const PROJECTS = [
         description: "Piscina de fibra de vidrio de 6x3m con 1.30m de profundidad. Una opción práctica, económica e ideal para una instalación rápida.",
         image: "/piscina4.jpeg",
         type: "Fibra de Vidrio",
-        rating: 5,
+        rating: 4,
         features: ["Instalación Rápida", "6x3 Metros", "Económica"]
     },
     {
@@ -66,7 +66,7 @@ export const PROJECTS = [
         description: "Piscina de 6x4m en concreto armado con porcelanato tipo piedra Bali Blue. Incluye cascada empotrada, iluminación LED y acceso con gradas.",
         image: "/piscina5.jpeg",
         type: "Concreto",
-        rating: 4,
+        rating: 5,
         features: ["Concreto Armado", "Piedra Bali", "Cascada"]
     },
     {
@@ -86,7 +86,7 @@ export const PROJECTS = [
         description: "Proyecto de piscina de 5x3m con profundidad de 1.30m, acabada en pintura de alta resistencia.",
         image: "/piscina7.jpeg",
         type: "Concreto",
-        rating: 5,
+        rating: 4,
         features: ["5x3 Metros", "Acabado Pintura", "Concreto"]
     },
     {
@@ -96,7 +96,7 @@ export const PROJECTS = [
         description: "Piscina elevada de 4x3m construida en concreto armado. Acabado en vitrocerámica española, cascada empotrada y fachaleta decorativa.",
         image: "/piscina8.jpeg",
         type: "Concreto",
-        rating: 4,
+        rating: 5,
         features: ["Piscina Elevada", "Vitrocerámica", "Cascada"]
     },
     {
