@@ -62,7 +62,6 @@ export default function Footer() {
                         </p>
                         <div className="flex gap-4">
                             {SOCIAL_LINKS
-                                // Añadimos esta línea para filtrar
                                 .filter((social) => social.name !== "Facebook Alternativo")
                                 .map((social) => (
                                     <a
