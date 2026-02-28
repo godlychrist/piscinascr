@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
 // Correo donde recibirás las notificaciones
-const TO_EMAIL = 'piscinascr.oficial@gmail.com';
+const TO_EMAIL = 'cristopherquiros2@gmail.com';
 
 // Forzar que la ruta sea dinámica para evitar problemas en producción con el caching
 export const dynamic = 'force-dynamic';
@@ -36,25 +36,90 @@ export async function POST(request) {
     // Enviar el correo usando Resend
     // Usamos un formato más seguro para el campo 'from'
     const { data, error } = await resend.emails.send({
-      from: 'PiscinasCR <onboarding@resend.dev>',
+      from: 'Piscinas Costa Rica <onboarding@resend.dev>',
       to: TO_EMAIL,
-      subject: `Nuevo Mensaje: ${subject || 'Consulta'} de ${name}`,
       replyTo: email,
+      subject: `Nueva consulta: ${subject || 'Sin asunto'} — ${name}`,
       html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
-          <h2 style="color: #4f46e5; border-bottom: 2px solid #4f46e5; padding-bottom: 10px;">Nuevo mensaje de contacto</h2>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Teléfono:</strong> ${phone || 'No proporcionado'}</p>
-          <p><strong>Asunto:</strong> ${subject || 'Sin asunto'}</p>
-          <div style="margin-top: 20px; padding: 15px; background-color: #f9fafb; border-radius: 5px;">
-            <p><strong>Mensaje:</strong></p>
-            <p style="white-space: pre-wrap;">${message}</p>
-          </div>
-          <footer style="margin-top: 20px; font-size: 12px; color: #6b7280; text-align: center;">
-            Este mensaje fue enviado desde el sitio web PiscinasCR
-          </footer>
-        </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nueva Consulta - PiscinasCR</title>
+</head>
+<body style="margin:0;padding:0;background-color:#f0f4f8;font-family:'Segoe UI',Helvetica,Arial,sans-serif;">
+
+  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f0f4f8;padding:40px 16px;">
+    <tr>
+      <td align="center">
+        <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.12);">
+
+          <!-- HEADER -->
+          <tr>
+            <td style="background:linear-gradient(135deg,#0a2e4d 0%,#0e7490 100%);padding:40px 48px;text-align:center;">
+              <h1 style="margin:0;font-size:28px;font-weight:800;color:#ffffff;letter-spacing:-0.5px;">Piscinas Costa Rica</h1>
+            </td>
+          </tr>
+
+          <!-- SENDER INFO PILL -->
+          <tr>
+            <td style="background:#ffffff;padding:28px 48px 0;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:16px 20px;">
+                    <p style="margin:0;font-size:12px;color:#94a3b8;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;">De parte de</p>
+                    <p style="margin:4px 0 0;font-size:18px;font-weight:700;color:#0f172a;">${name}</p>
+                    <a href="mailto:${email}" style="color:#0e7490;font-size:13px;text-decoration:none;font-weight:500;">↩ Responder a ${email}</a>
+                    ${phone ? `<p style="margin:6px 0 0;font-size:13px;color:#334155;font-weight:500;">📞 <a href="tel:${phone}" style="color:#0e7490;text-decoration:none;font-weight:600;">${phone}</a></p>` : ''}
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- SUBJECT -->
+          <tr>
+            <td style="background:#ffffff;padding:24px 48px 0;">
+              <p style="margin:0 0 6px;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#94a3b8;">Asunto</p>
+              <p style="margin:0;font-size:20px;font-weight:700;color:#0f172a;">${subject || 'Sin asunto'}</p>
+            </td>
+          </tr>
+
+          <!-- DIVIDER -->
+          <tr>
+            <td style="background:#ffffff;padding:20px 48px 0;">
+              <hr style="border:none;border-top:1px solid #e2e8f0;margin:0;" />
+            </td>
+          </tr>
+
+          <!-- MESSAGE BODY -->
+          <tr>
+            <td style="background:#ffffff;padding:24px 48px 36px;">
+              <p style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#94a3b8;">Mensaje</p>
+              <p style="margin:0;font-size:15px;line-height:1.8;color:#334155;white-space:pre-wrap;">${message}</p>
+            </td>
+          </tr>
+
+          <!-- CTA BUTTON -->
+          <tr>
+            <td style="background:#ffffff;padding:0 48px 40px;text-align:center;">
+              <a href="mailto:${email}?subject=Re: ${encodeURIComponent(subject || 'Tu consulta')}"
+                 style="display:inline-block;background:linear-gradient(135deg,#0a2e4d,#0e7490);color:#ffffff;text-decoration:none;font-size:14px;font-weight:700;padding:14px 32px;border-radius:50px;letter-spacing:0.05em;">
+                ✉ Responder a ${name}
+              </a>
+            </td>
+          </tr>
+
+
+
+        </table>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>
       `,
     });
 
