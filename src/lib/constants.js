@@ -36,7 +36,7 @@ export const PROJECTS = [
         description: "Piscina de fibra de vidrio de nuestro taller, instalada en tiempo récord con deck de madera sintética y sistema de hidromasaje.",
         image: "/piscina2.jpeg",
         type: "Fibra de Vidrio",
-        rating: 4,
+        rating: 5,
         features: ["Instalación Rápida", "Hidromasaje", "Bajo Mantenimiento"]
     },
     {
