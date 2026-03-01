@@ -2,7 +2,7 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
 // Correo donde recibirás las notificaciones
-const TO_EMAIL = 'cristopherquiros2@gmail.com';
+const TO_EMAIL = 'piscinascr.oficial@gmail.com';
 
 // Forzar que la ruta sea dinámica para evitar problemas en producción con el caching
 export const dynamic = 'force-dynamic';
