@@ -33,21 +33,21 @@ export const PROJECTS = [
         id: 2,
         title: "Familiar Confort",
         location: "Hacienda espinal, Alajuela Guacima",
-        description: "Piscina de fibra de vidrio de nuestro taller, instalada en tiempo récord con deck de madera sintética y sistema de hidromasaje.",
+        description: "Complejo acuático con dos piscinas y jacuzzi integrado. La piscina principal cuenta con profundidad progresiva y está acompañada de un impresionante borde infinito de 23 metros lineales que le da una estética moderna y elegante.",
         image: "/piscina2.jpeg",
-        type: "Fibra de Vidrio",
+        type: "Concreto",
         rating: 5,
-        features: ["Instalación Rápida", "Hidromasaje", "Bajo Mantenimiento"]
+        features: ["Dos Piscinas", "Borde Infinito", "Jacuzzi"]
     },
     {
         id: 3,
         title: "Proyecto Oasis",
         location: "Condominio en Grecia, Rincón de Arias",
-        description: "Diseño moderno con borde infinito y acabados de alta resistencia, ideal para zonas costeras y climas tropicales.",
+        description: "Complejo acuático con dos piscinas y jacuzzi integrado, aceras perimetrales y cuarto de máquinas incluido. Construido con fibro-lamina de alta durabilidad para garantizar años de disfrute.",
         image: "/piscina3.jpeg",
-        type: "Concreto",
+        type: "Fibro-Lamina",
         rating: 5,
-        features: ["Borde Infinito", "Pintura Epóxica", "Vista Panorámica"]
+        features: ["Dos Piscinas", "Jacuzzi Integrado", "Alta Durabilidad"]
     },
     {
         id: 4,
