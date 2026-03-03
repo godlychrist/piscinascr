@@ -23,11 +23,11 @@ export const PROJECTS = [
         id: 1,
         title: "Hotel 360",
         location: "Venecia Las Nubes, Hotel 360",
-        description: "Construcción integral en concreto con acabados en vitrocerámica española y sistema de filtración inteligente de última generación.",
+        description: "Piscina de borde infinito 7×4m con sistema de agua salada automatizado y jacuzzi integrado. Acabados en porcelanato tipo piedra Bali e iluminación LED RGB.",
         image: "/piscina1.jpeg",
         type: "Concreto",
         rating: 5,
-        features: ["Iluminación LED", "Vitrocerámica", "Climatizada",]
+        features: ["Borde Infinito", "Agua Salada", "Jacuzzi", "LED RGB"]
     },
     {
         id: 2,
@@ -53,7 +53,7 @@ export const PROJECTS = [
         id: 4,
         title: "Villa Marina",
         location: "Puntarenas",
-        description: "Piscina de fibra de vidrio de 6x3m con 1.30m de profundidad. Una opción práctica, económica e ideal para una instalación rápida.",
+        description: "Piscina de fibra de vidrio de 6×3m con 1.30m de profundidad. Una opción práctica, económica e ideal para una instalación rápida.",
         image: "/piscina4.jpeg",
         type: "Fibra de Vidrio",
         rating: 4,
@@ -62,8 +62,8 @@ export const PROJECTS = [
     {
         id: 5,
         title: "San Francisco",
-        location: "Barrio Felipe Pérez, Liberia, Guancaste",
-        description: "Piscina de 6x4m en concreto armado con porcelanato tipo piedra Bali Blue. Incluye cascada empotrada, iluminación LED y acceso con gradas.",
+        location: "Barrio Felipe Pérez, Liberia, Guanacaste",
+        description: "Piscina de 6×4m en concreto armado con porcelanato tipo piedra Bali Blue. Incluye cascada empotrada, iluminación LED y acceso con gradas.",
         image: "/piscina5.jpeg",
         type: "Concreto",
         rating: 5,
