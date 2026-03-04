@@ -36,13 +36,7 @@ export default function ProjectSlider({ limit }) {
         setCurrentIndex((prev) => (prev === 0 ? displayProjects.length - itemsToShow : prev - 1));
     };
 
-    useEffect(() => {
-        if (!hasMultiplePages) return;
-        const interval = setInterval(() => {
-            nextSlide();
-        }, 5000);
-        return () => clearInterval(interval);
-    }, [nextSlide, hasMultiplePages]);
+    // Auto-slide removed by user request to allow manual navigation only
 
     const renderStars = (rating) => {
         return (
