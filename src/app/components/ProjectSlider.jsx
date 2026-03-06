@@ -7,6 +7,8 @@ import { PROJECTS } from '@/lib/constants';
 export default function ProjectSlider({ limit }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [itemsToShow, setItemsToShow] = useState(3);
+    const [touchStartX, setTouchStartX] = useState(0);
+    const [touchEndX, setTouchEndX] = useState(0);
 
     const displayProjects = limit ? PROJECTS.slice(0, limit) : PROJECTS;
     const hasMultiplePages = displayProjects.length > itemsToShow;
@@ -34,6 +36,24 @@ export default function ProjectSlider({ limit }) {
     const prevSlide = () => {
         if (!hasMultiplePages) return;
         setCurrentIndex((prev) => (prev === 0 ? displayProjects.length - itemsToShow : prev - 1));
+    };
+
+    const handleTouchStart = (e) => {
+        setTouchStartX(e.targetTouches[0].clientX);
+        setTouchEndX(e.targetTouches[0].clientX); // Reset end to start position
+    };
+
+    const handleTouchMove = (e) => {
+        setTouchEndX(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (touchStartX - touchEndX > 70) {
+            nextSlide();
+        }
+        if (touchStartX - touchEndX < -70) {
+            prevSlide();
+        }
     };
 
     // Auto-slide removed by user request to allow manual navigation only
@@ -87,7 +107,12 @@ export default function ProjectSlider({ limit }) {
                 </>
             )}
 
-            <div className="overflow-hidden -mx-4 px-4 py-12 -my-12">
+            <div
+                className="overflow-hidden -mx-4 px-4 py-12 -my-12 touch-pan-y select-none"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
+            >
                 <div
                     className={`flex transition-transform duration-700 ease-in-out ${!hasMultiplePages ? 'justify-center' : ''}`}
                     style={{
@@ -163,7 +188,7 @@ export default function ProjectSlider({ limit }) {
                             role="tab"
                             aria-selected={currentIndex === i}
                             onClick={() => setCurrentIndex(i)}
-                            className={`h-2 transition-all duration-300 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-brand-cyan outline-none ${currentIndex === i ? 'w-8 bg-brand-blue' : 'w-2 bg-gray-300 hover:bg-gray-400'}`}
+                            className={`h-2.5 transition-all duration-300 rounded-full focus:ring-2 focus:ring-offset-2 focus:ring-brand-cyan outline-none ${currentIndex === i ? 'w-10 bg-brand-blue' : 'w-2.5 bg-gray-300 hover:bg-gray-400'}`}
                             aria-label={`Ir al grupo de proyectos ${i + 1}`}
                         />
                     ))}
