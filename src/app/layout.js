@@ -1,4 +1,5 @@
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { SITE_NAME } from "@/lib/constants";
 
@@ -81,6 +82,19 @@ export default function RootLayout({ children }) {
       <body
         className={`${montserrat.className} ${montserrat.variable} antialiased selection:bg-brand-cyan selection:text-white`}
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-G85KKBT9TM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-G85KKBT9TM');
+          `}
+        </Script>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-brand-blue focus:text-white focus:px-6 focus:py-3 focus:rounded-xl focus:font-bold focus:shadow-2xl outline-none"
