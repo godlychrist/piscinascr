@@ -1,10 +1,13 @@
 export default function robots() {
     return {
-        rules: {
-            userAgent: '*',
-            allow: '/',
-            disallow: '/private/',
-        },
-        sitemap: 'https://piscinascr.com/sitemap.xml',
+        rules: [
+            {
+                userAgent: '*',
+                allow: '/',
+                disallow: ['/private/', '/preview/', '/api/', '/_next/'],
+            },
+        ],
+        sitemap: 'https://www.piscinas-costarica.com/sitemap.xml',
+        host: 'https://www.piscinas-costarica.com',
     }
 }
