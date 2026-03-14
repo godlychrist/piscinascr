@@ -5,9 +5,9 @@ export default function StructuredData() {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": SITE_NAME,
-        "image": "https://piscinascr.com/logo.png",
-        "@id": "https://piscinascr.com",
-        "url": "https://piscinascr.com",
+        "image": "https://www.piscinas-costarica.com/logo.png",
+        "@id": "https://www.piscinas-costarica.com",
+        "url": "https://www.piscinas-costarica.com",
         "telephone": CONTACT_INFO.phone,
         "address": {
             "@type": "PostalAddress",
