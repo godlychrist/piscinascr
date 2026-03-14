@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 import StructuredData from "./components/StructuredData";
 
 export const metadata = {
-  metadataBase: new URL('https://piscinascr.com'),
+  metadataBase: new URL('https://www.piscinas-costarica.com'),
   title: {
     default: `${SITE_NAME} | Construcción de Piscinas de Lujo en Costa Rica`,
     template: `%s | ${SITE_NAME}`
@@ -37,7 +37,7 @@ export const metadata = {
   openGraph: {
     title: `${SITE_NAME} | Construcción de Piscinas`,
     description: "Transforma tu espacio exterior en un paraíso personal con los expertos en piscinas de Costa Rica. Más de 600 proyectos entregados.",
-    url: 'https://piscinascr.com',
+    url: 'https://www.piscinas-costarica.com',
     siteName: SITE_NAME,
     images: [
       {
