@@ -6,6 +6,14 @@ import ContactForm from "../components/ContactForm";
 import Image from "next/image";
 import { SITE_NAME, CONTACT_INFO } from "@/lib/constants";
 
+export const metadata = {
+    title: 'Preview - Interno',
+    robots: {
+        index: false,
+        follow: false,
+    },
+};
+
 export default function PreviewPage() {
     const images = ["/piscina1.jpeg", "/piscina2.jpeg", "/piscina3.jpeg"];
 
