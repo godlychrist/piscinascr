@@ -1,5 +1,5 @@
 export default function sitemap() {
-    const baseUrl = 'https://piscinascr.com';
+    const baseUrl = 'https://www.piscinas-costarica.com';
 
     return [
         {
