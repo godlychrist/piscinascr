@@ -28,7 +28,7 @@ export const metadata = {
     telephone: false,
   },
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.piscinas-costarica.com',
   },
   icons: {
     icon: '/icon.png',
@@ -56,10 +56,10 @@ export const metadata = {
     description: 'Expertos en diseño y construcción de piscinas de lujo. ¡Cotiza tu proyecto hoy!',
     images: ['/piscina1.jpeg'],
   },
-  verification: {
+  /* verification: {
     google: 'google-site-verification-placeholder',
     // yandex: 'yandex-verification-placeholder',
-  },
+  }, */
   robots: {
     index: true,
     follow: true,
